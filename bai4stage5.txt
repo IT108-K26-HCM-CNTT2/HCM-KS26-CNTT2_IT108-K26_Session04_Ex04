@@ -1,0 +1,66 @@
+
+PHẦN 1: PHÂN TÍCH & ĐỀ XUẤT
+
+1. Bảng so sánh
+
+Tiêu chí        Absolute Path                         Relative Path
+---------------------------------------------------------------------------
+Tính di động   Thấp, phụ thuộc vào tên User,         Cao, có thể chạy khi
+                ổ đĩa và vị trí thư mục.              chuyển Project sang máy khác.
+
+Độ dài          Dài, ví dụ:                           Ngắn hơn, ví dụ:
+câu lệnh        C:\Users\An\Desktop\Project\          ../Data/users.csv
+                Data\users.csv
+
+Tính an toàn    Dễ làm lộ cấu trúc thư mục            Không phụ thuộc vào tên User
+                cá nhân và có thể không chạy         hoặc ổ đĩa cụ thể.
+                khi đường dẫn thay đổi.
+
+
+PHẦN 2: LỰA CHỌN
+
+Giải pháp tối ưu: Relative Path
+
+Câu lệnh:
+
+../Data/users.csv
+
+
+GIẢI THÍCH:
+
+- Dấu "." đại diện cho thư mục hiện tại.
+- Dấu ".." đại diện cho thư mục cha của thư mục hiện tại.
+- Nếu code đang nằm trong thư mục "src" thì ".." sẽ đi lên thư mục "Project".
+- Sau đó "Data/users.csv" đi vào thư mục Data để lấy file users.csv.
+
+
+VÍ DỤ CẤU TRÚC THƯ MỤC:
+
+Project/
+|
+|-- src/
+|   |-- main.py
+|
+|-- Data/
+    |-- users.csv
+
+
+Từ file main.py trong thư mục src, đường dẫn:
+
+../Data/users.csv
+
+sẽ trỏ đến:
+
+Project/Data/users.csv
+
+
+=>KẾT LUẬN:
+
+Nên sử dụng Relative Path vì phù hợp với yêu cầu chia sẻ toàn bộ
+thư mục Project cho người khác. Cách này không phụ thuộc vào tên
+User, ổ đĩa hay vị trí cài đặt của từng máy.
+
+
+CÂU LỆNH ĐÃ SỬA:
+
+../Data/users.csv
